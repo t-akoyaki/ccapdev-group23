@@ -3,7 +3,7 @@
     <h2>Add Review</h2>
     <h3> Restaurant: {{restaurant.name}} </h3>
    <form action="/submit_review" method="post">
-        <input type="hidden" name="restaurant_name" value="{{ restaurant.name }}">
+        <input type="hidden" id="restaurant_name" name="restaurant_name" value="{{ restaurant.name }}">
 
         <input type="hidden" id="username" name="username" value="{{ profile.username }}">
         
