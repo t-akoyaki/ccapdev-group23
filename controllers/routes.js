@@ -41,7 +41,8 @@ const bcrypt = require('bcrypt');
 
 // mongoose --------------------------------------------------------------------------
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017/tastetalks');
+//mongoose.connect('mongodb://127.0.0.1:27017/tastetalks');
+mongoose.connect('mongodb+srv://ccapdev:group23@cluster0.y2gde1s.mongodb.net/');
 
 const profileSchema = new mongoose.Schema({
   username: { type: String },
@@ -65,7 +66,7 @@ const Restaurant = mongoose.model('Restaurant', restaurantSchema);
 
 
 
-function add(server){ //===================================================================================
+function add(server){ //==================================================================================
 
 // when opening site -----------------------------------------------------------------
 server.get('/', function(req, resp){
