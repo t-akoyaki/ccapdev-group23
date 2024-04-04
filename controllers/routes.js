@@ -10,7 +10,8 @@ const server = express();
 
 // mongodb ---------------------------------------------------------------------------
 const { MongoClient } = require('mongodb');
-const databaseURL = "mongodb://127.0.0.1:27017/";
+// const databaseURL = "mongodb://127.0.0.1:27017/";
+const databaseURL = "mongodb+srv://ccapdev:group23@cluster0.y2gde1s.mongodb.net/";
 const mongoClient = new MongoClient(databaseURL); //client instance
 
 const databaseName = "tastetalks"; //like schema 'survey'
