@@ -1,0 +1,11 @@
+{
+  "name": "ccapdev-phase2-group23---4.2-update",
+  "version": "1.0.0",
+  "description": "1. Start with app.js install commands\r     //Install Command:\r     //npm init\r     //npm i express express-handlebars body-parser mongodb\r 2. Run app.js to create database\r 3. Connect through MongoDB at mongodb://localhost:27017\r 4. Look for the tastetalks database\r 5. Under it, upload restaurants.json (from the model folder) to restaurants collection and profiles.json to profiles collection",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

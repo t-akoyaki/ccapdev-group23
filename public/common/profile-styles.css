@@ -1,0 +1,72 @@
+/* Additional or override styles for the profile page */
+body {
+    background: url('dessert.jpg') center/cover fixed;
+    padding: 0;
+    margin: 0;
+}
+
+/* Profile container styles */
+.profile-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Profile card styles */
+.profile-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: transform .2s;
+    padding-bottom: 20px;
+}
+
+.profile-card:hover {
+    transform: scale(1.02);
+}
+
+/* Profile heading styles */
+.profile-heading {
+    font-family: cursive;
+    color: black;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Profile info styles */
+.profile-info {
+    text-align: left;
+    padding-left: 30px;
+}
+
+/* Edit profile button styles */
+.edit-profile-button,
+.change-password-button {
+    font-family: cursive;
+    background-color: #3E2D0F;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform .2s;
+    margin-right: 10px; /* Added margin-right for spacing between buttons */
+    text-decoration: none;
+}
+
+.edit-profile-button:hover,
+.change-password-button:hover {
+    background-color: #2B1C08;
+    transform: scale(1.02);
+}
+
+/* Logo styles */
+.logo {
+    max-width: 350px;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}

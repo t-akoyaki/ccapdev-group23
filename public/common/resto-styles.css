@@ -1,0 +1,109 @@
+body {
+  font-family: cursive;
+  background-image: url('787442.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-attachment: fixed;
+  overflow-x: hidden;
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  line-height: 1.6;
+  height: 100vh; /* Set height to 100% of viewport height */
+}
+
+
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 1em;
+    margin-bottom: 20px;
+  }
+
+  .left, .middle, .right {
+    padding: 1em;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.9);
+    margin: 1em;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform .2s;
+  }
+  
+  .left:hover, .middle:hover, .right:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+  }
+  
+  .left {
+    width: 20%;
+    order: 1;
+  }
+  
+  .middle {
+    width: 80%;
+    order: 2;
+  }
+  
+  a, button {
+    font-family: cursive;
+    background-color: #3E2D0F; /* Brown color */
+    color: white;
+    padding: 15px 30px; /* Increase padding for length */
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1.2em; /* Increase font size */
+    text-decoration: none;
+}
+  
+  button:hover {
+    background-color: #231908;
+  }
+  
+  .review {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ccc;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+    width: 90%;
+  }
+  
+  .review:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  h1 {
+    color: white;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(62, 45, 15, 0.9); /* Semi-transparent black background for better readability */
+    width: 100%;
+  }
+  
+  h2 {
+    color: #333;
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 0.75em;
+  }
+  
+  .centered-logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 500px;
+}

@@ -1,0 +1,18 @@
+{{> header}}
+
+<div class="profile-container">
+    <div class="profile-card">
+        <h2 class="profile-heading">User Profile</h2>
+        <div class="profile-info">
+            <!-- Display user information here -->
+            <!-- Assuming you have variables to hold user data -->
+            <p><strong>Username:</strong> <span id="userId">{{user.username}}</span></p>
+            <p><strong>Email: </strong><span id="email">{{user.email}}</span></p><br>
+            <!-- You can add more fields as needed -->
+        </div>
+        <a href="edit_profile" class="edit-profile-button">Edit Profile</a>
+        <a href="change_password" class="edit-profile-button">Change Password</a> <br><br><br>
+        <a href="view_home" class="edit-profile-button">Return to Main Page</a> <br><br>
+    </div>
+    <img src="/common/logo2.png" alt="Logo" class="logo">
+</div>

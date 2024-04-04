@@ -1,0 +1,25 @@
+{{> header}}
+
+<div class="main-body">
+
+    <h1>Featured Restaurants</h1>
+
+    {{#each restaurants}}
+
+        <div class="restaurant">
+            <h2>{{name}}</h2>
+            <p>{{description}}</p>
+
+            <div class="button-holder">
+                <a href="/view_resto?restaurantId={{name}}">Read Reviews</a>
+                <a href="/add_review?restaurantId={{name}}">Add Review</a>
+            </div>
+        </div>
+
+    {{/each}}
+
+    <div class="logo"> 
+        <img src="/common/logo2.png" alt="">
+    </div>
+
+</div>

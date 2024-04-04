@@ -1,0 +1,23 @@
+[
+    {
+        "username": "admin",
+        "email": "admin@tastetalks.com",
+        "password": "$2b$10$p1A3YxDw/Ntq0bcUkN2mluI8FCS2Bh6jbCurDKvQPiRzL2cbyy1Nq"
+    },{
+        "username": "alice",
+        "email": "alice@example.com",
+        "password": "$2b$10$.8i25KldGyRbRJ2hkASuneDMTs9YVHU4RLkVaYsDnBmK97FN74CQ6"
+    },{
+        "username": "bob",
+        "email": "bob@example.com",
+        "password": "$2b$10$c3Bvn1dv/pVm3QhRfcPpeulW3Yrr1N3yJsggebvht1sJg2qMGw14."
+    },{
+        "username": "charlie",
+        "email": "charlie@example.com",
+        "password": "$2b$10$bipeI.jKYqYOUnTrbHVraOzZs3rMwjBzVQUDRElbpz6G2UKYml7iO"
+    },{
+        "username": "eve",
+        "email": "eve@example.com",
+        "password": "$2b$10$iFWYGr9QQr0dplsOWNTbau/1I.kVBcISo41qgOLJQgZFMCntWnXZC"
+    }
+]

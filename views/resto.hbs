@@ -1,0 +1,29 @@
+{{> header}}
+
+<a href="/view_home">Back</a>
+
+<h1>{{restaurant.name}}</h1>
+
+<div class="container">
+
+    <div class="left">
+        <h2>Options</h2>
+        <a href="/add_review?restaurantId={{restaurant.name}}">Add Review</a>
+        <a href="/edit_review?restaurantId={{restaurant.name}}">Edit Review</a>        
+    </div>
+
+    <div class="middle">
+
+        <h2>Recent Reviews</h2>
+
+        {{#each restaurant.reviews}}
+            <div class="review">
+                <p><strong>{{username}}: </strong>{{content}}</p>
+            </div>
+        {{/each}}
+        
+    </div>
+
+</div>
+
+<img src="/common/logo2.png" alt="Logo" class="centered-logo">

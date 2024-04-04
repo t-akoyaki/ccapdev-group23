@@ -1,0 +1,121 @@
+/* Reset default styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Body styles */
+body {
+    background: url('blog-hero-6-best-wines-with-pizza_1500x_9556c5e4-e712-4394-af05-b5648b67df1d_1100x.webp.jpeg') center/cover fixed;
+    /* Set background image */
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Container styles */
+.container {
+    text-align: center;
+}
+
+/* Logo styles */
+.logo {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* Register form styles */
+.register-form {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Increased opacity here */
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 550px; /* Set the maximum width as needed */
+    margin: 0 auto; /* Center the box horizontally */
+    transition: transform .2s;
+}
+
+.register-form:hover {
+    transform: scale(1.02);
+}
+
+/* Register Form heading styles */
+.register-form h2 {
+    font-family: cursive;
+    /* Set font to cursive for this heading */
+    color: black;
+    /* Black color for this heading */
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Input field styles */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #ccc;
+    box-shadow: 0 0 8px rgba(0, 116, 217, 0.1);
+}
+
+/* Error message styles */
+.error-message {
+    color: #FF4136;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Checkbox styles */
+label {
+    display: block;
+    margin-bottom: 15px;
+}
+
+/* Register button styles */
+button, a {
+    font-family: cursive;
+    background-color: #3E2D0F;
+    color: rgb(255, 255, 255);
+    /* Black color for text */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+button:hover {
+    background-color: #2B1C08;
+}
+
+input[type=submit] {
+    background-color: #3E2D0F; /* Set button background color */
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: background-color .2s;
+    font-family: 'Pacifico', cursive;
+}

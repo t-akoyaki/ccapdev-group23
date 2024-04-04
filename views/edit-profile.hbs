@@ -1,0 +1,16 @@
+<div class="container">
+    <img src="/common/logo2.png" alt="Logo" class="logo">
+    <div class="edit-profile-form">
+        <h2>Edit Profile</h2>
+        <form name="editProfileForm" action="edit_profile">
+            <label for="username">Username:</label><br>
+            <input type="text" name="username" value="{{user.username}}">
+            <label for="email">E-mail:</label><br>
+            <input type="text" name="email" value="{{user.email}}">
+            <!-- No password fields included -->
+            <!-- <button type="submit">Save Changes</button> -->
+        </form>
+        <button onclick="alert('This feature is not yet available.'); window.location.href='/view_profile';">Save Changes</button>
+
+    </div>
+</div>

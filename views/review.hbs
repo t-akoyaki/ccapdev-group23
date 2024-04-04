@@ -1,0 +1,21 @@
+<div class="background-image"></div>
+<div class="login-container">
+    <h2>Add Review</h2>
+    <h3> Restaurant: {{restaurant.name}} </h3>
+   <form action="/submit_review" method="post">
+        <input type="hidden" name="restaurant_name" value="{{ restaurant.name }}">
+
+        <input type="hidden" id="username" name="username" value="{{ profile.username }}">
+        
+        <label for="content">Review Description:</label><br>
+        <textarea id="content" name="content" rows="4" cols="50"></textarea><br>
+
+        <input type="checkbox" id="anon" name="anon" />
+        <label for="anon">Post anonymously</label><br><br>
+
+        <button type="submit">Submit Review</button>
+        <input type="button" value="Back to Reviews Page" onclick="window.location.href='/view_home';">
+    </form>
+
+</div>
+<img src="/common/logo2.png" class="logo" alt="Logo">
