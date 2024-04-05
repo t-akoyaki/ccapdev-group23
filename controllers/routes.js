@@ -249,6 +249,8 @@ server.get('/add_review', function(req, resp){
 // submit review ---------------------------------------------------------------------
 server.post('/submit_review', async function(req, resp) {
   // Static restaurant name
+  const dbo = mongoClient.db(databaseName);
+  const col = dbo.collection("restaurants");
   const restaurantName = req.body.restaurant_name;
 
   // Getting info from the request body
@@ -257,11 +259,11 @@ server.post('/submit_review', async function(req, resp) {
 
   try {
       // Find the restaurant by its name
-      const restaurant = await Restaurant.findOne({ name: restaurantName });
+      const restaurant = await col.findOne({ name: restaurantName });
 
-      if (!restaurant) {
+      /* if (!restaurant) {
           return resp.status(404).json({ message: 'Restaurant not found' });
-      }
+      } */
 
       let reviewerName = loggedInUser.username;
 
