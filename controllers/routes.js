@@ -278,7 +278,7 @@ server.post('/submit_review', async function(req, resp) {
       });
 
       // Save the updated restaurant document
-      const savedRestaurant = await restaurant.save();
+      const savedRestaurant = await col.save();
 
         // Check if the restaurant was saved successfully
         if (!savedRestaurant) {
