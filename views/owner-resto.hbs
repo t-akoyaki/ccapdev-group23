@@ -1,0 +1,39 @@
+{{> header}}
+
+<h1>{{restaurant.name}}</h1>
+
+<div class="container">
+
+    <div class="middle">
+
+        <h2>Recent Reviews</h2>
+
+        {{#each restaurant.reviews}}
+            <div class="review">
+                <p><strong>{{username}}: </strong>{{content}}</p>
+            
+            {{#if helpful}}
+                <form action="/mark_helpful" method="POST" style="display: inline;">
+                    <input type="hidden" id="restaurantId" name="restaurantId" value="{{../restaurant.name}}">
+                    <input type="hidden" id="reviewContent" name="reviewContent" value="{{content}}">
+                    <input type="hidden" id="helpful" name="helpful" value=false>
+                    <button type="submit">Mark Unhelpful</button>
+                </form>
+                <p>Owner marked this review helpful</p>
+            {{else}}
+                <form action="/mark_helpful" method="POST" style="display: inline;">
+                    <input type="hidden" id="restaurantId" name="restaurantId" value="{{../restaurant.name}}">
+                    <input type="hidden" id="reviewContent" name="reviewContent" value="{{content}}">
+                    <input type="hidden" id="helpful" name="helpful" value=true>
+                    <button type="submit">Mark Helpful</button>
+                </form>   
+            {{/if}}
+            </div>
+        {{/each}}
+
+        
+    </div>
+
+</div>
+
+<img src="/common/logo2.png" alt="Logo" class="centered-logo">
