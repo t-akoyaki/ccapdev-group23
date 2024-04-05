@@ -393,6 +393,83 @@ server.get('/edit_review', function(req, resp){
   }).catch(errorFn);
 });
 
+// add comment ----------------------------------------------------------------------------
+// Route to handle fetching comments for a review
+server.get('/get_comments', async (req, res) => {
+  try {
+    // Ensure that the user is authenticated before proceeding
+    const username = req.session.username; // Assuming you have session middleware set up
+
+    if (!username) {
+      return res.status(401).send('Unauthorized');
+    }
+
+    // Extract the review ID from the request query
+    const reviewId = req.query.reviewId;
+
+    // Find the review by its ID
+    const review = await Review.findById(reviewId);
+
+    if (!review) {
+      return res.status(404).send('Review not found');
+    }
+
+    // Extract comments from the review
+    const comments = review.comments;
+
+    // Send the comments back to the client
+    return res.status(200).json({ comments: comments });
+  } catch (error) {
+    console.error('Error fetching comments:', error);
+    return res.status(500).send('Internal Server Error');
+  }
+});
+
+// submit add comment ---------------------------------------------------------------------
+// Route to handle adding comments
+server.post('/add_comment', async (req, res) => {
+  try {
+      const dbo = mongoClient.db(databaseName);
+      const col = dbo.collection('restaurants');
+    
+      const { restaurantId, reviewContent, comment } = req.body;
+      console.log(reviewContent + comment);
+
+      /* Find the restaurant by review ID and update the response/comment in the corresponding review
+      const updatedRestaurant = await Restaurant.findOneAndUpdate(
+          { name: restaurantId }, // Find restaurant with review ID
+          { $set: { 'reviews.$.response': comment } }, // Update response in the matching review
+          { new: true } // Return the updated document
+      );
+
+      if (!updatedRestaurant) {
+          return res.status(404).send('Restaurant or review not found');
+      } */
+
+      col.findOne({ name: restaurantId }).then(function(restaurant) {
+        const reviewIndex = restaurant.reviews.findIndex(review => review.content == reviewContent);
+  
+        restaurant.reviews[reviewIndex].response = comment;
+  
+        col.updateOne({ name: restaurantId }, { $set: { reviews: restaurant.reviews } });
+  
+        console.log('Response added successfully: ' + restaurant.reviews[reviewIndex].response);
+  
+        return res.render('owner-resto',{
+          layout: 'index',
+          title: 'Your Restaurant',
+          pageStyles: '<link rel="stylesheet" href="/common/resto-styles.css">',
+          restaurant
+        });
+      }).catch(errorFn);
+
+      //return res.status(200).send('Comment failed successfully');
+  } catch (error) {
+      console.error('Error adding comment:', error);
+      return res.status(500).send('Internal Server Error');
+  }
+});
+
 // submit edit review ---------------------------------------------------------------------
 server.post('/submit_edited_review', async function(req, resp) {
   const dbo = mongoClient.db(databaseName);
