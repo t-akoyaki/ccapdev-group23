@@ -2,15 +2,16 @@
     <img src="/common/logo2.png" alt="Logo" class="logo">
     <div class="edit-profile-form">
         <h2>Edit Profile</h2>
-        <form name="editProfileForm" action="edit_profile">
+        <form name="editProfileForm" id="editProfileForm" action="/edit_profile" method="POST">
             <label for="username">Username:</label><br>
-            <input type="text" name="username" value="{{user.username}}">
+            <input type="text" name="username" id="username" value="{{user.username}}"><br>
             <label for="email">E-mail:</label><br>
-            <input type="text" name="email" value="{{user.email}}">
-            <!-- No password fields included -->
-            <!-- <button type="submit">Save Changes</button> -->
+            <input type="text" name="email" id="email" value="{{user.email}}"><br>
+            <!-- Add a hidden input field to pass CSRF token if needed -->
+            <!-- <input type="hidden" name="_csrf" value="{{csrfToken}}"> -->
+            <button type="submit">Save Changes</button>
         </form>
-        <button onclick="alert('This feature is not yet available.'); window.location.href='/view_profile';">Save Changes</button>
-
+        <!-- Display an alert and redirect to view profile page on button click -->
+        <button onclick="window.location.href='/view_profile';">Cancel</button>
     </div>
 </div>
