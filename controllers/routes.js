@@ -248,20 +248,21 @@ server.get('/add_review', function(req, resp){
 
 // submit review ---------------------------------------------------------------------
 server.post('/submit_review', async function(req, resp) {
-  // Static restaurant name
+  const dbo = mongoClient.db(databaseName);
+  const col = dbo.collection("restaurants");
+  
   const restaurantName = req.body.restaurant_name;
-
-  // Getting info from the request body
   const loggedInUser = req.session.user;
   const { content, anon } = req.body;
 
-  try {
+  /* try {
       // Find the restaurant by its name
-      const restaurant = await Restaurant.findOne({ name: restaurantName });
-
+      const restaurant = await Restaurant.findOne({ name: restaurantName }); 
       if (!restaurant) {
           return resp.status(404).json({ message: 'Restaurant not found' });
       }
+      */
+  col.findOne({ name: restaurantName }).then(function(restaurant){
 
       let reviewerName = loggedInUser.username;
 
@@ -269,27 +270,24 @@ server.post('/submit_review', async function(req, resp) {
         reviewerName = 'Anonymous';
       }
 
-      // Push the new review to the reviews array of the restaurant
+      /Push the new review to the reviews array of the restaurant
       restaurant.reviews.push({ 
           username: reviewerName,
           content
-      });
+      }); 
 
-      // Save the updated restaurant document
       const savedRestaurant = await restaurant.save();
-
-        // Check if the restaurant was saved successfully
-        if (!savedRestaurant) {
+      if (!savedRestaurant) {
         return resp.status(500).json({ message: 'Error saving restaurant' });
       }
 
-      // Respond with success message and updated restaurant document
       return resp.status(201).json({ message: 'Review added successfully', restaurant });
-  } catch (error) {
+  /* } catch (error) {
       console.error('Error adding review:', error);
       return resp.status(500).json({ message: 'Internal server error' });
-  }
-}); 
+    } 
+  }); */
+  }).catch(errorFn);
 
 // edit review page ------------------------------------------------------------------
 server.get('/edit_review', function(req, resp){
