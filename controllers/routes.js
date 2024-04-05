@@ -559,12 +559,12 @@ server.get('/view_profile', function(req, resp){
   const dbo = mongoClient.db(databaseName);
   const col = dbo.collection("profiles");
 
-  // Check if user session exists and contains user information
+  /* Check if user session exists and contains user information
   if (!req.session || !req.session.user || !req.session.user.username) {
     // Redirect the user to the login page or handle it appropriately
     resp.redirect('/login');
     return;
-  }
+  } */
 
   // Retrieve user information from session
   const loggedInUsername = req.session.user.username;
