@@ -1,10 +1,9 @@
 <div class="background-image"></div>
 <div class="login-container">
     <h2>Add Review</h2>
-    <h3> Restaurant: {{restaurant.name}} </h3>
+    <h3> Restaurant: {{ restaurant.name }} </h3>
    <form action="/submit_review" method="post">
-        <input type="hidden" id="restaurant_name" name="restaurant_name" value="{{ restaurant.name }}">
-
+        <input type="hidden" name="restaurant_name" value="{{ restaurant.name }}">
         <input type="hidden" id="username" name="username" value="{{ profile.username }}">
         
         <label for="content">Review Description:</label><br>
@@ -16,6 +15,16 @@
         <button type="submit">Submit Review</button>
         <input type="button" value="Back to Reviews Page" onclick="window.location.href='/view_home';">
     </form>
-
 </div>
 <img src="/common/logo2.png" class="logo" alt="Logo">
+
+<div class="review-box">
+    <p>This is a review text.</p>
+    <button class="thumbs-up-btn" data-review-id="1">Helpful</button>
+    <button class="thumbs-down-btn" data-review-id="1">Unhelpful</button>
+</div>
+<div class="review-box">
+    <p>This is another review text.</p>
+    <button class="thumbs-up-btn" data-review-id="2">Helpful</button>
+    <button class="thumbs-down-btn" data-review-id="2">Unhelpful</button>
+</div>
