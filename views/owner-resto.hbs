@@ -12,28 +12,41 @@
             <div class="review">
                 <p><strong>{{username}}: </strong>{{content}}</p>
             
-            {{#if helpful}}
-                <form action="/mark_helpful" method="POST" style="display: inline;">
-                    <input type="hidden" id="restaurantId" name="restaurantId" value="{{../restaurant.name}}">
-                    <input type="hidden" id="reviewContent" name="reviewContent" value="{{content}}">
-                    <input type="hidden" id="helpful" name="helpful" value=false>
-                    <button type="submit">Mark Unhelpful</button>
+                {{#if helpful}}
+                    <form action="/mark_helpful" method="POST" style="display: inline;">
+                        <input type="hidden" name="restaurantId" value="{{../restaurant.name}}">
+                        <input type="hidden" name="reviewContent" value="{{content}}">
+                        <input type="hidden" name="helpful" value=false>
+                        <button type="submit">Mark Unhelpful</button>
+                    </form>
+                    <p>Owner marked this review helpful</p>
+                {{else}}
+                    <form action="/mark_helpful" method="POST" style="display: inline;">
+                        <input type="hidden" name="restaurantId" value="{{../restaurant.name}}">
+                        <input type="hidden" name="reviewContent" value="{{content}}">
+                        <input type="hidden" name="helpful" value=true>
+                        <button type="submit">Mark Helpful</button>
+                    </form>   
+                {{/if}}
+                
+                <!-- Form for adding comments -->
+                <form action="/add_comment" method="POST">
+                    <input type="hidden" name="restaurantId" value="{{../restaurant.name}}">
+                    <input type="hidden" name="reviewContent" value="{{content}}">
+                    <textarea name="comment" placeholder="Add your comment"></textarea>
+                    <button type="submit">Submit Comment</button>
                 </form>
-                <p>Owner marked this review helpful</p>
-            {{else}}
-                <form action="/mark_helpful" method="POST" style="display: inline;">
-                    <input type="hidden" id="restaurantId" name="restaurantId" value="{{../restaurant.name}}">
-                    <input type="hidden" id="reviewContent" name="reviewContent" value="{{content}}">
-                    <input type="hidden" id="helpful" name="helpful" value=true>
-                    <button type="submit">Mark Helpful</button>
-                </form>   
-            {{/if}}
+
+                <!-- Display existing comments -->
+                {{#if response}}
+                    <div class="comments">
+                        <h3>Owner Response</h3>
+                        <p>{{response}}</p>
+                    </div>
+                {{/if}}
             </div>
         {{/each}}
-
-        
     </div>
-
 </div>
 
 <img src="/common/logo2.png" alt="Logo" class="centered-logo">
