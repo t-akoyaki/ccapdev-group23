@@ -262,7 +262,7 @@ server.post('/submit_review', async function(req, resp) {
           return resp.status(404).json({ message: 'Restaurant not found' });
       }
       */
-  col.findOne({ name: restaurantName }).then(function(restaurant){
+  col.findOne({ name: restaurantName }).then(async function(restaurant){
 
       let reviewerName = loggedInUser.username;
 
