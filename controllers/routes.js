@@ -10,8 +10,7 @@ const server = express();
 
 // mongodb ---------------------------------------------------------------------------
 const { MongoClient } = require('mongodb');
-// const databaseURL = "mongodb://127.0.0.1:27017/";
-const databaseURL = "mongodb+srv://ccapdev:group23@cluster0.y2gde1s.mongodb.net/";
+const databaseURL = "mongodb://127.0.0.1:27017/";
 const mongoClient = new MongoClient(databaseURL); //client instance
 
 const databaseName = "tastetalks"; //like schema 'survey'
@@ -41,8 +40,7 @@ const bcrypt = require('bcrypt');
 
 // mongoose --------------------------------------------------------------------------
 const mongoose = require('mongoose');
-//mongoose.connect('mongodb://127.0.0.1:27017/tastetalks');
-mongoose.connect('mongodb+srv://ccapdev:group23@cluster0.y2gde1s.mongodb.net/');
+mongoose.connect('mongodb://127.0.0.1:27017/tastetalks');
 
 const profileSchema = new mongoose.Schema({
   username: { type: String },
@@ -66,7 +64,7 @@ const Restaurant = mongoose.model('Restaurant', restaurantSchema);
 
 
 
-function add(server){ //==================================================================================
+function add(server){ //===================================================================================
 
 // when opening site -----------------------------------------------------------------
 server.get('/', function(req, resp){
@@ -248,21 +246,20 @@ server.get('/add_review', function(req, resp){
 
 // submit review ---------------------------------------------------------------------
 server.post('/submit_review', async function(req, resp) {
-  const dbo = mongoClient.db(databaseName);
-  const col = dbo.collection("restaurants");
-  
+  // Static restaurant name
   const restaurantName = req.body.restaurant_name;
+
+  // Getting info from the request body
   const loggedInUser = req.session.user;
   const { content, anon } = req.body;
 
-  /* try {
+  try {
       // Find the restaurant by its name
-      const restaurant = await Restaurant.findOne({ name: restaurantName }); 
+      const restaurant = await Restaurant.findOne({ name: restaurantName });
+
       if (!restaurant) {
           return resp.status(404).json({ message: 'Restaurant not found' });
       }
-      */
-  col.findOne({ name: restaurantName }).then(async function(restaurant){
 
       let reviewerName = loggedInUser.username;
 
@@ -274,20 +271,23 @@ server.post('/submit_review', async function(req, resp) {
       restaurant.reviews.push({ 
           username: reviewerName,
           content
-      }); 
+      });
 
+      // Save the updated restaurant document
       const savedRestaurant = await restaurant.save();
-      if (!savedRestaurant) {
+
+        // Check if the restaurant was saved successfully
+        if (!savedRestaurant) {
         return resp.status(500).json({ message: 'Error saving restaurant' });
       }
 
+      // Respond with success message and updated restaurant document
       return resp.status(201).json({ message: 'Review added successfully', restaurant });
-  /* } catch (error) {
+  } catch (error) {
       console.error('Error adding review:', error);
       return resp.status(500).json({ message: 'Internal server error' });
-    } 
-  }); */
-  }).catch(errorFn);
+  }
+}); 
 
 // edit review page ------------------------------------------------------------------
 server.get('/edit_review', function(req, resp){
