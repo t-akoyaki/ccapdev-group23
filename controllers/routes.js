@@ -270,7 +270,7 @@ server.post('/submit_review', async function(req, resp) {
         reviewerName = 'Anonymous';
       }
 
-      /Push the new review to the reviews array of the restaurant
+      // Push the new review to the reviews array of the restaurant
       restaurant.reviews.push({ 
           username: reviewerName,
           content
