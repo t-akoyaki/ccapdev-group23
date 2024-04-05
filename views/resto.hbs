@@ -19,6 +19,9 @@
         {{#each restaurant.reviews}}
             <div class="review">
                 <p><strong>{{username}}: </strong>{{content}}</p>
+            {{#if helpful}}
+                <h5>Owner marked this review as helpful</h5>
+            {{/if}}
             </div>
         {{/each}}
         
