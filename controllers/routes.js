@@ -40,7 +40,7 @@ const bcrypt = require('bcrypt');
 
 // mongoose --------------------------------------------------------------------------
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://ccapdev:tastetalks@cluster0.y2gde1s.mongodb.net//tastetalks');
+mongoose.connect('mongodb+srv://ccapdev:tastetalks@cluster0.y2gde1s.mongodb.net/tastetalks');
 
 const profileSchema = new mongoose.Schema({
   username: { type: String },
