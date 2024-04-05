@@ -1,69 +1,90 @@
-  .header {
-    background-color: #3E2D0F;
-    color: #fff;
-    padding: 10px 20px;
-    position: relative;
-  }
+.header {
+  background-color: #3E2D0F;
+  color: #fff;
+  padding: 10px 20px;
+  position: relative;
+}
 
-  .header-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  .header-title {
-    display: flex; /* Use flexbox */
-    justify-content: center; /* Center child elements horizontally */
-    align-items: center; /* Center child elements vertically */
+.header-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header-title img {
-    width: 20%; 
-    height: auto;
-    margin: 0 auto;
+  width: 100%; /* Adjusted width to ensure responsiveness */
+  height: auto;
+  max-width: 150px; /* Adjust the maximum width as needed */
 }
 
-  .search-bar {
-    display: flex;
-    align-items: center;
-   }
+.search-bar {
+  display: flex;
+  align-items: center;
+}
 
-   .search-bar button {
-    background-color: #fff;
-    border: 2px solid #ccc;
-    color: #000;
-    cursor: pointer;
-    font-family: Arial, sans-serif;
-    font-size: 10px;
-    padding: 3px 7px;
+.search-bar button {
+  background-color: #fff;
+  border: 2px solid #ccc;
+  color: #000;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 12px; /* Increased font size for better visibility */
+  padding: 5px 10px; /* Adjusted padding for better appearance */
 }
 
 .h-profile-info {
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
+  display: flex; /* Changed position to display */
+  align-items: center;
 }
 
 .h-profile-info img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
 .h-profile-name a {
-  display: block;
+  display: inline-block; /* Changed display to inline-block */
   text-align: center;
   margin-top: 10px;
   padding: 8px 15px;
-  background-color: #3E2D0F; /* Blue background color for the "Read Reviews" link */
-  color: #fff; /* White text color for the link */
+  background-color: #3E2D0F;
+  color: #fff;
   text-decoration: none;
   border-radius: 5px;
   margin: 5px;
   width: 50%;
   font-family: cursive;
+}
+
+.h-go-back {
+  display: flex;
+  align-items: center;
+}
+
+.h-go-back a {
+  text-decoration: none;
+  color: #fff;
+  background-color: #3E2D0F;
+  padding: 8px 15px;
+  border-radius: 5px;
+  margin-left: 20px;
+  font-family: cursive;
+}
+
+/* Hover effect for the button */
+.h-go-back a:hover {
+  background-color: #543D16;
+}
+
+/* Adjustments to other elements to maintain alignment */
+.search-bar {
+  flex: 1;
 }
